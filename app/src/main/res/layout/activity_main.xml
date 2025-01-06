@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+
 
     <!-- NavHostFragment para manejar la navegación entre fragmentos -->
     <androidx.fragment.app.FragmentContainerView
@@ -15,7 +18,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/nav_graph" />
+        app:navGraph="@navigation/nav_graph"
+        android:visibility="gone"/>
 
     <!-- BottomNavigationView para la navegación inferior -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -25,6 +29,116 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav_menu" />
+        app:menu="@menu/bottom_nav_menu"
+        android:visibility="gone"/>
+
+
+    <include
+        android:id="@+id/includeLayout"
+        layout="@layout/guia"/>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/inicio_guia"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"
+        >
+
+        <TextView
+            android:id="@+id/titulo_guia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="casual"
+            android:text="@string/title_guia"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/mensaje_guia"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/mensaje_guia"
+            android:layout_width="300dp"
+            android:layout_height="160dp"
+            android:layout_marginBottom="22dp"
+            android:fontFamily="casual"
+            android:text="@string/mensaje_guia"
+            app:layout_constraintBottom_toTopOf="@+id/boton_continuar_guia"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.886" />
+
+        <ImageButton
+            android:id="@+id/boton_continuar_guia"
+            android:layout_width="384dp"
+            android:layout_height="390dp"
+            android:background="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/spyro_icon" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/final_guia"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/titulo_final_guia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="casual"
+            android:text="@string/fin_guia"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/mensaje_guia_final"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/mensaje_guia_final"
+            android:layout_width="303dp"
+            android:layout_height="178dp"
+            android:layout_marginBottom="44dp"
+            android:fontFamily="casual"
+
+            android:text="@string/mensaje_guia_final"
+            app:layout_constraintBottom_toTopOf="@+id/boton_finalizar_guia"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.583"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.991" />
+
+        <ImageButton
+            android:id="@+id/boton_finalizar_guia"
+            android:layout_width="384dp"
+            android:layout_height="390dp"
+            android:background="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.481"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/spyro_icon" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

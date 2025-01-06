@@ -1,11 +1,14 @@
 package dam.pmdm.spyrothedragon.ui;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,10 +26,11 @@ import dam.pmdm.spyrothedragon.adapters.CharactersAdapter;
 import dam.pmdm.spyrothedragon.databinding.FragmentCharactersBinding;
 
 
-public class CharactersFragment extends Fragment {
+public class CharactersFragment extends Fragment implements CharactersAdapter.OnSpyroLongClickListener {
 
     private FragmentCharactersBinding binding;
-
+    private SpyroFireView spyroFireView;
+    private Handler handler = new Handler();
     private RecyclerView recyclerView;
     private CharactersAdapter adapter;
     private List<Character> charactersList;
@@ -35,22 +39,52 @@ public class CharactersFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
         binding = FragmentCharactersBinding.inflate(inflater, container, false);
-        // Inicializamos el RecyclerView y el adaptador
+
         recyclerView = binding.recyclerViewCharacters;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         charactersList = new ArrayList<>();
         adapter = new CharactersAdapter(charactersList);
         recyclerView.setAdapter(adapter);
 
-        // Cargamos los personajes desde el XML
         loadCharacters();
         return binding.getRoot();
+    }
+
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        spyroFireView = view.findViewById(R.id.spyroFireView);
+        recyclerView = binding.recyclerViewCharacters;
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        charactersList = new ArrayList<>();
+        loadCharacters();
+        adapter = new CharactersAdapter(charactersList);
+        recyclerView.setAdapter(adapter);
+        // Asignar el listener al Adapter
+        adapter.setOnSpyroLongClickListener(this);
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    @Override
+    public void onSpyroLongClick() {
+        Log.d("CharactersFragment", "onSpyroLongClick called");
+        spyroFireView.setVisibility(View.VISIBLE);
+        spyroFireView.startAnimation();
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                spyroFireView.setVisibility(View.GONE);
+                spyroFireView.stopAnimation();
+            }
+        }, 3000);
     }
 
     private void loadCharacters() {
@@ -99,7 +133,7 @@ public class CharactersFragment extends Fragment {
                 eventType = parser.next();
             }
 
-            adapter.notifyDataSetChanged(); // Notificamos al adaptador que los datos han cambiado
+            adapter.notifyDataSetChanged();
         } catch (Exception e) {
             e.printStackTrace();
         }

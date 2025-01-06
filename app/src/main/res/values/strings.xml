@@ -3,4 +3,36 @@
     <string name="worlds">Mundos</string>
     <string name="characters">Personajes</string>
     <string name="collectibles">Coleccionables</string>
+    <string name="title_about">Acerca de</string>
+    <string name="text_about">Aplicación desarrollada por \n <b>Sergio Anguita Gámez.</b></string>
+    <string name="accept">Aceptar</string>
+    <string name="title_guia">Guía de inicio</string>
+    <string name="mensaje_guia">¡Bienvenido al fantástico mundo de Spyro!
+                                \n
+                                \n
+                                A continuación repasaremos algunas de las funcionalidades básicas de
+                                la aplicacíon para poder navegar entre pestañas
+                                \n
+                                \n
+                                Pulsa sobre Spyro para comenzar
+    </string>
+    <string name="texto_personajes">Aquí encontrarás a todos los personajes del mundo de Spyro.</string>
+    <string name="texto_mundos">Aquí podrás explorar a todos los mundos del mundo de Spyro.</string>
+    <string name="texto_colecciones">Aquí podrás explorar a todos los coleccionables del mundo de Spyro.</string>
+    <string name="texto_info">Aquí podrás encontrar información acerca de la aplicación.</string>
+    <string name="saltar">Saltar guía</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="fin_guia">Fin de la guia</string>
+    <string name="mensaje_guia_final">¡Esto es todo!
+                                \n
+                                \n
+                                Ahora que has aprendido como seleccionar personajes, mundos y comprobar
+                                tus colecciones estás listo para embarcarte en el mundo de Spyro.
+                                \n
+                                \n
+                                Pulsa sobre Spyro para comenzar
+    </string>
+    <string name="salir">Salir</string>
+
+    <string name="comenzar">Comenzar</string>
 </resources>

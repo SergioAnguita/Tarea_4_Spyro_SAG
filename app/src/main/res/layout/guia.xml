@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/guia"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_transparent"
+    android:clickable="true"
+    android:focusable="true"
+    android:visibility="gone"
+    >
+
+    <ImageView
+        android:id="@+id/info_guia"
+        android:layout_width="90dp"
+        android:layout_height="96dp"
+        android:layout_toEndOf="@+id/saltar_guia"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/flecha" />
+
+    <ImageView
+        android:id="@+id/personaje_guia"
+        android:layout_width="90dp"
+        android:layout_height="96dp"
+        android:layout_toEndOf="@+id/saltar_guia"
+        android:rotation="180"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.889"
+        app:srcCompat="@drawable/flecha" />
+
+    <Button
+        android:id="@+id/saltar_guia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/purple_transparent"
+        android:text="@string/saltar"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/texto_guia"
+        android:layout_width="356dp"
+        android:layout_height="93dp"
+        android:background="@color/purple_transparent"
+        android:gravity="center"
+        android:text="@string/comenzar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/boton_siguiente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/siguiente"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.674" />
+
+    <ImageView
+        android:id="@+id/mundos_guia"
+        android:layout_width="90dp"
+        android:layout_height="96dp"
+        android:layout_toEndOf="@+id/saltar_guia"
+        android:rotation="180"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.889"
+        app:srcCompat="@drawable/flecha" />
+
+    <ImageView
+        android:id="@+id/coleccion_guia"
+        android:layout_width="90dp"
+        android:layout_height="96dp"
+        android:layout_toEndOf="@+id/saltar_guia"
+        android:rotation="180"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.915"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.889"
+        app:srcCompat="@drawable/flecha" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,6 +14,15 @@ import dam.pmdm.spyrothedragon.R;
 import dam.pmdm.spyrothedragon.models.Collectible;
 
 public class CollectiblesAdapter extends RecyclerView.Adapter<CollectiblesAdapter.CollectiblesViewHolder> {
+    private OnGemClickListener onGemClickListener;
+
+    public interface OnGemClickListener {
+        void onGemClick(ImageView gemImageView);
+    }
+
+    public void setOnGemClickListener(OnGemClickListener listener) {
+        this.onGemClickListener = listener;
+    }
 
     private List<Collectible> list;
 
@@ -32,7 +41,16 @@ public class CollectiblesAdapter extends RecyclerView.Adapter<CollectiblesAdapte
         Collectible collectible = list.get(position);
         holder.nameTextView.setText(collectible.getName());
 
-        // Cargar la imagen (simulado con un recurso drawable)
+        holder.imageImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onGemClickListener != null) {
+                    onGemClickListener.onGemClick(holder.imageImageView);
+                }
+            }
+        });
+
+
         int imageResId = holder.itemView.getContext().getResources().getIdentifier(collectible.getImage(), "drawable", holder.itemView.getContext().getPackageName());
         holder.imageImageView.setImageResource(imageResId);
     }
